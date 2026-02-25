@@ -1,0 +1,23 @@
+# Read the input word
+word = input().strip()
+
+# Start position is at 'a'
+current = 'a'
+total_steps = 0
+
+# Process each character in the word
+for char in word:
+    # Calculate the clockwise distance
+    clockwise = abs(ord(char) - ord(current))
+    
+    # Calculate the counterclockwise distance (going the other way around the circle)
+    counterclockwise = 26 - clockwise
+    
+    # Add the minimum of the two distances to total steps
+    total_steps += min(clockwise, counterclockwise)
+    
+    # Update current position
+    current = char
+
+# Output the result
+print(total_steps)
